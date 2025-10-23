@@ -200,15 +200,33 @@
         }
         
         .language-selector {
-            position: fixed;
-            top: 90px;
-            right: 20px;
-            z-index: 1000;
-            background: #1a2332;
-            border-radius: 8px;
-            padding: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            margin-left: 1.5rem;
+        }
+        
+        .language-btn {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .language-btn.active {
+            background: #00d4ff;
+            color: #0a0e17;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+        
+        .language-btn:not(.active) {
+            background: rgba(255, 255, 255, 0.05);
+            color: #f8fafc;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .language-btn:not(.active):hover {
+            background: rgba(255, 255, 255, 0.1);
         }
         
         .tech-grid {
@@ -315,25 +333,30 @@
     </style>
 </head>
 <body class="font-josefin">
-    <!-- Language Selector -->
-    <div class="language-selector hidden md:block">
-        <button id="lang-fr" class="px-3 py-1 bg-primary text-dark rounded-md">FR</button>
-        <button id="lang-en" class="px-3 py-1 bg-gray-700 text-gray-300 rounded-md ml-2">EN</button>
-    </div>
-
     <!-- Navigation -->
     <nav class="fixed w-full bg-dark/90 backdrop-blur-sm z-50 border-b border-gray-800">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="text-2xl font-bold gradient-text">Rachid Ferhaoui</a>
-            <div class="hidden md:flex space-x-10 text-lg">
+            <div class="hidden md:flex items-center space-x-10 text-lg">
                 <a href="#home" class="nav-link font-medium" data-i18n="home">Accueil</a>
                 <a href="#about" class="nav-link font-medium" data-i18n="about">À Propos</a>
                 <a href="#skills" class="nav-link font-medium" data-i18n="skills">Compétences</a>
                 <a href="#experience" class="nav-link font-medium" data-i18n="experience">Expérience</a>
                 <a href="#education" class="nav-link font-medium" data-i18n="education">Formation</a>
                 <a href="#contact" class="nav-link font-medium" data-i18n="contact">Contact</a>
+                
+                <!-- Language Selector in Navigation -->
+                <div class="language-selector">
+                    <button id="lang-fr" class="language-btn active">FR</button>
+                    <button id="lang-en" class="language-btn ml-2">EN</button>
+                </div>
             </div>
-            <div class="md:hidden">
+            <div class="md:hidden flex items-center">
+                <!-- Language Selector for Mobile -->
+                <div class="language-selector mr-4">
+                    <button id="lang-fr-mobile" class="language-btn active text-sm">FR</button>
+                    <button id="lang-en-mobile" class="language-btn ml-2 text-sm">EN</button>
+                </div>
                 <button id="menu-btn" class="text-primary focus:outline-none">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
@@ -347,10 +370,6 @@
             <a href="#experience" class="block py-3 border-b border-gray-800" data-i18n="experience">Expérience</a>
             <a href="#education" class="block py-3 border-b border-gray-800" data-i18n="education">Formation</a>
             <a href="#contact" class="block py-3" data-i18n="contact">Contact</a>
-            <div class="flex mt-4 pt-3 border-t border-gray-800">
-                <button id="lang-fr-mobile" class="px-3 py-1 bg-primary text-dark rounded-md text-sm">FR</button>
-                <button id="lang-en-mobile" class="px-3 py-1 bg-gray-700 text-gray-300 rounded-md text-sm ml-2">EN</button>
-            </div>
         </div>
     </nav>
 
@@ -951,14 +970,14 @@
             });
             
             // Update language buttons
-            document.getElementById('lang-fr').className = lang === 'fr' ? 
-                'px-3 py-1 bg-primary text-dark rounded-md' : 'px-3 py-1 bg-gray-700 text-gray-300 rounded-md ml-2';
-            document.getElementById('lang-en').className = lang === 'en' ? 
-                'px-3 py-1 bg-primary text-dark rounded-md ml-2' : 'px-3 py-1 bg-gray-700 text-gray-300 rounded-md ml-2';
-            document.getElementById('lang-fr-mobile').className = lang === 'fr' ? 
-                'px-3 py-1 bg-primary text-dark rounded-md text-sm' : 'px-3 py-1 bg-gray-700 text-gray-300 rounded-md text-sm';
-            document.getElementById('lang-en-mobile').className = lang === 'en' ? 
-                'px-3 py-1 bg-primary text-dark rounded-md text-sm ml-2' : 'px-3 py-1 bg-gray-700 text-gray-300 rounded-md text-sm ml-2';
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            document.getElementById('lang-fr').classList.toggle('active', lang === 'fr');
+            document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+            document.getElementById('lang-fr-mobile').classList.toggle('active', lang === 'fr');
+            document.getElementById('lang-en-mobile').classList.toggle('active', lang === 'en');
                 
             // Update HTML lang attribute
             document.documentElement.lang = lang;
