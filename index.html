@@ -6,12 +6,10 @@
     <title>Rachid Ferhaoui | Network & Systems Specialist</title>
     
     <!-- Latest Libraries -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <script src="https://unpkg.com/three@0.150.1/build/three.min.js"></script>
-    <script src="https://unpkg.com/three@0.150.1/examples/js/controls/OrbitControls.js"></script>
     
     <script>
         tailwind.config = {
@@ -26,7 +24,7 @@
                         card: '#1a2332'
                     },
                     fontFamily: {
-                        inter: ['Inter', 'sans-serif']
+                        josefin: ['Josefin Sans', 'sans-serif']
                     },
                     animation: {
                         'gradient': 'gradient 8s linear infinite',
@@ -70,7 +68,7 @@
     
     <style>
         * {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Josefin Sans', sans-serif;
         }
         
         body {
@@ -237,15 +235,6 @@
             transform: translateY(-5px);
         }
         
-        .particles-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-        }
-        
         .typing-animation {
             overflow: hidden;
             border-right: .15em solid #00d4ff;
@@ -307,9 +296,25 @@
             height: 1px;
             background: linear-gradient(90deg, transparent, #00d4ff, transparent);
         }
+        
+        .network-node {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #00d4ff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.7);
+        }
+        
+        .network-connection {
+            position: absolute;
+            height: 1px;
+            background: rgba(0, 212, 255, 0.3);
+            transform-origin: 0 0;
+        }
     </style>
 </head>
-<body class="font-inter">
+<body class="font-josefin">
     <!-- Language Selector -->
     <div class="language-selector hidden md:block">
         <button id="lang-fr" class="px-3 py-1 bg-primary text-dark rounded-md">FR</button>
@@ -351,7 +356,6 @@
 
     <!-- Hero Section -->
     <section id="home" class="pt-28 pb-20 md:pt-36 md:pb-28 hero-gradient text-white relative overflow-hidden">
-        <div class="particles-container" id="particles-js"></div>
         <div class="container mx-auto px-6 flex flex-col md:flex-row items-center relative z-10">
             <div class="md:w-1/2 mb-12 md:mb-0">
                 <div class="inline-block px-4 py-2 bg-primary/10 rounded-full border border-primary/20 mb-6">
@@ -745,17 +749,14 @@
                     <div class="mt-8">
                         <h4 class="font-semibold mb-4" data-i18n="social_media">Réseaux Sociaux</h4>
                         <div class="flex space-x-4">
-                            <a href="#" class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary hover:bg-primary hover:text-dark transition duration-300">
+                            <a href="https://www.linkedin.com/in/rachid-ferhaoui-40889627b/" class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary hover:bg-primary hover:text-dark transition duration-300">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
-                            <a href="#" class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary hover:bg-primary hover:text-dark transition duration-300">
+                            <a href="https://github.com/RASHEDF04" class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary hover:bg-primary hover:text-dark transition duration-300">
                                 <i class="fab fa-github"></i>
                             </a>
-                            <a href="#" class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary hover:bg-primary hover:text-dark transition duration-300">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary hover:bg-primary hover:text-dark transition duration-300">
-                                <i class="fab fa-facebook-f"></i>
+                            <a href="https://wa.me/212611915325" class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary hover:bg-primary hover:text-dark transition duration-300">
+                                <i class="fab fa-whatsapp"></i>
                             </a>
                         </div>
                     </div>
@@ -802,151 +803,145 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
-        document.getElementById('menu-btn').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-
-        // Language switching functionality
+        // Language support
         const translations = {
-            fr: {
-                home: "Accueil",
-                about: "À Propos",
-                skills: "Compétences",
-                experience: "Expérience",
-                education: "Formation",
-                contact: "Contact",
-                welcome: "Bienvenue sur mon portfolio",
-                job_title: "Spécialiste Réseaux & Systèmes",
-                hero_desc: "Spécialisé dans la gestion d'infrastructures réseau avec une expertise en administration système, virtualisation et cybersécurité.",
-                contact_me: "Me Contacter",
-                learn_more: "En savoir plus",
-                about_me: "À Propos de Moi",
-                about_desc1: "Technicien Spécialisé En Systèmes Et Réseaux, récemment diplômé et passionné par l'informatique et la gestion d'infrastructures réseau.",
-                about_desc2: "Rigoureux, autonome et doté d'un bon sens de l'analyse, j'ai acquis des compétences solides en administration système, virtualisation, sécurité réseau et supervision.",
-                about_desc3: "Je suis prêt à m'investir pleinement dans un environnement professionnel pour contribuer activement à des projets techniques, assurer la disponibilité des systèmes, et participer à l'évolution des infrastructures IT.",
-                location: "Localisation",
-                phone: "Téléphone",
-                languages: "Langues",
-                skills_title: "Compétences Techniques",
-                networking_skills: "Réseaux & Systèmes",
-                network_management: "Gestion de Réseaux",
-                equipment_config: "Configuration d'Équipements",
-                network_monitoring: "Surveillance de Réseaux",
-                ip_management: "Gestion d'Adresses IP",
-                security_skills: "Sécurité & Virtualisation",
-                vpn_config: "Configuration VPN",
-                server_admin: "Administration Serveur",
-                virtualization: "Virtualisation",
-                firewall_management: "Gestion de Pare-feu",
-                software_tools: "Logiciels & Outils",
-                experience_title: "Expérience Professionnelle",
-                intern_title: "Stagiaire Département IT",
-                intern_desc1: "Gestion et supervision de l'infrastructure réseau et des systèmes pendant 2 ans",
-                intern_desc2: "Mise en œuvre de solutions open source pour réduire les coûts de gestion IT",
-                intern_desc3: "Optimisation de la disponibilité des services réseau avec une surveillance centralisée (Zabbix)",
-                intern_desc4: "Établissement d'une politique d'adressage IP efficace pour prévenir les conflits d'adresses",
-                academic_intern: "Stagiaire Académique",
-                academic_desc1: "Mise en place d'un environnement virtualisé avec Proxmox VE",
-                academic_desc2: "Installation et configuration de GLPI pour la gestion des ressources IT",
-                academic_desc3: "Déploiement d'un serveur de sauvegarde avec TrueNAS pour la sécurité des données",
-                academic_desc4: "Supervision de l'infrastructure avec Zabbix pour une meilleure visibilité",
-                education_title: "Formation & Certifications",
-                education_subtitle: "Formation",
-                diploma_title: "Diplôme en Systèmes et Réseaux",
-                cyber_title: "Formation Testeur d'Intrusion Cybersécurité",
-                math_title: "Mathématiques et Applications",
-                bac_title: "Baccalauréat en Sciences Physiques et Chimiques",
-                certifications_title: "Certifications",
-                cisco_cert: "Introduction à la Cybersécurité - Ethical Hacker",
-                cisco_desc: "Certifié en fondamentaux de la cybersécurité et techniques de piratage éthique par Cisco Networking Academy.",
-                network_cert: "Administration Réseau",
-                network_desc: "Certification en gestion d'infrastructures réseau, configuration d'équipements et supervision de réseaux.",
-                contact_title: "Contactez-moi",
-                get_in_touch: "Restons en contact",
-                contact_desc: "Je suis ouvert aux opportunités professionnelles dans le domaine des réseaux et systèmes. N'hésitez pas à me contacter pour discuter de projets ou de collaborations.",
-                social_media: "Réseaux Sociaux",
-                form_name: "Nom Complet",
-                form_email: "Adresse Email",
-                form_subject: "Sujet",
-                form_message: "Message",
-                form_send: "Envoyer le Message",
-                copyright: "© 2025 Rachid Ferhaoui. Tous droits réservés.",
-                privacy: "Politique de confidentialité",
-                terms: "Conditions d'utilisation"
+            'en': {
+                'home': 'Home',
+                'about': 'About',
+                'skills': 'Skills',
+                'experience': 'Experience',
+                'education': 'Education',
+                'contact': 'Contact',
+                'welcome': 'Welcome to my portfolio',
+                'job_title': 'Network & Systems Specialist',
+                'hero_desc': 'Specialized in network infrastructure management with expertise in system administration, virtualization, and cybersecurity.',
+                'contact_me': 'Contact Me',
+                'learn_more': 'Learn More',
+                'about_me': 'About Me',
+                'about_desc1': 'Specialized Technician in Systems and Networks, recently graduated and passionate about IT and network infrastructure management.',
+                'about_desc2': 'Rigorous, autonomous and with good analytical skills, I have acquired solid skills in system administration, virtualization, network security and monitoring.',
+                'about_desc3': 'I am ready to fully invest myself in a professional environment to actively contribute to technical projects, ensure system availability, and participate in the evolution of IT infrastructures.',
+                'location': 'Location',
+                'phone': 'Phone',
+                'languages': 'Languages',
+                'skills_title': 'Technical Skills',
+                'networking_skills': 'Networking & Systems',
+                'network_management': 'Network Management',
+                'equipment_config': 'Equipment Configuration',
+                'network_monitoring': 'Network Monitoring',
+                'ip_management': 'IP Address Management',
+                'security_skills': 'Security & Virtualization',
+                'vpn_config': 'VPN Configuration',
+                'server_admin': 'Server Administration',
+                'virtualization': 'Virtualization',
+                'firewall_management': 'Firewall Management',
+                'software_tools': 'Software & Tools',
+                'experience_title': 'Work Experience',
+                'intern_title': 'IT Department Intern',
+                'intern_desc1': 'Managed and supervised network infrastructure and systems for 2 years',
+                'intern_desc2': 'Implemented open source solutions to reduce IT management costs',
+                'intern_desc3': 'Optimized network service availability with centralized monitoring (Zabbix)',
+                'intern_desc4': 'Established effective IP addressing policy to prevent address conflicts',
+                'academic_intern': 'Academic Intern',
+                'academic_desc1': 'Set up a virtualized environment with Proxmox VE',
+                'academic_desc2': 'Installed and configured GLPI for IT resource management',
+                'academic_desc3': 'Deployed a backup server with TrueNAS for data security',
+                'academic_desc4': 'Supervised infrastructure with Zabbix for better visibility',
+                'education_title': 'Education & Certifications',
+                'education_subtitle': 'Education',
+                'diploma_title': 'Diploma in Systems and Networks',
+                'cyber_title': 'Cybersecurity Intrusion Tester Training',
+                'math_title': 'Mathematics and Applications',
+                'bac_title': 'Baccalaureate in Physical and Chemical Science',
+                'certifications_title': 'Certifications',
+                'cisco_cert': 'Introduction to Cybersecurity - Ethical Hacker',
+                'cisco_desc': 'Certified in cybersecurity fundamentals and ethical hacking techniques by Cisco Networking Academy.',
+                'network_cert': 'Network Administration',
+                'network_desc': 'Advanced training in network administration, including routing, switching, and security protocols.',
+                'contact_title': 'Get In Touch',
+                'get_in_touch': 'Get In Touch',
+                'contact_desc': 'I\'m interested in opportunities where I can contribute my skills in network administration and systems management. Feel free to reach out if you\'d like to discuss potential collaborations.',
+                'social_media': 'Social Media',
+                'form_name': 'Name',
+                'form_email': 'Email',
+                'form_subject': 'Subject',
+                'form_message': 'Message',
+                'form_send': 'Send Message',
+                'copyright': '© 2025 Rachid Ferhaoui. All rights reserved.',
+                'privacy': 'Privacy Policy',
+                'terms': 'Terms of Use'
             },
-            en: {
-                home: "Home",
-                about: "About",
-                skills: "Skills",
-                experience: "Experience",
-                education: "Education",
-                contact: "Contact",
-                welcome: "Welcome to my portfolio",
-                job_title: "Network & Systems Specialist",
-                hero_desc: "Specialized in network infrastructure management with expertise in system administration, virtualization and cybersecurity.",
-                contact_me: "Contact Me",
-                learn_more: "Learn More",
-                about_me: "About Me",
-                about_desc1: "Specialized Technician in Systems and Networks, recently graduated and passionate about IT and network infrastructure management.",
-                about_desc2: "Rigorous, autonomous and with good analytical skills, I have acquired solid skills in system administration, virtualization, network security and monitoring.",
-                about_desc3: "I am ready to fully invest myself in a professional environment to actively contribute to technical projects, ensure system availability, and participate in the evolution of IT infrastructures.",
-                location: "Location",
-                phone: "Phone",
-                languages: "Languages",
-                skills_title: "Technical Skills",
-                networking_skills: "Networking & Systems",
-                network_management: "Network Management",
-                equipment_config: "Equipment Configuration",
-                network_monitoring: "Network Monitoring",
-                ip_management: "IP Address Management",
-                security_skills: "Security & Virtualization",
-                vpn_config: "VPN Configuration",
-                server_admin: "Server Administration",
-                virtualization: "Virtualization",
-                firewall_management: "Firewall Management",
-                software_tools: "Software & Tools",
-                experience_title: "Professional Experience",
-                intern_title: "IT Department Intern",
-                intern_desc1: "Management and supervision of network infrastructure and systems for 2 years",
-                intern_desc2: "Implementation of open source solutions to reduce IT management costs",
-                intern_desc3: "Optimization of network service availability with centralized monitoring (Zabbix)",
-                intern_desc4: "Establishment of an effective IP addressing policy to prevent address conflicts",
-                academic_intern: "Academic Intern",
-                academic_desc1: "Setting up a virtualized environment with Proxmox VE",
-                academic_desc2: "Installation and configuration of GLPI for IT resource management",
-                academic_desc3: "Deployment of a backup server with TrueNAS for data security",
-                academic_desc4: "Infrastructure monitoring with Zabbix for better visibility",
-                education_title: "Education & Certifications",
-                education_subtitle: "Education",
-                diploma_title: "Diploma in Systems and Networks",
-                cyber_title: "Penetration Testing Cybersecurity Training",
-                math_title: "Mathematics and Applications",
-                bac_title: "Baccalaureate in Physical and Chemical Sciences",
-                certifications_title: "Certifications",
-                cisco_cert: "Introduction to Cybersecurity - Ethical Hacker",
-                cisco_desc: "Certified in cybersecurity fundamentals and ethical hacking techniques by Cisco Networking Academy.",
-                network_cert: "Network Administration",
-                network_desc: "Certification in network infrastructure management, equipment configuration and network monitoring.",
-                contact_title: "Contact Me",
-                get_in_touch: "Get In Touch",
-                contact_desc: "I am open to professional opportunities in the field of networks and systems. Feel free to contact me to discuss projects or collaborations.",
-                social_media: "Social Media",
-                form_name: "Full Name",
-                form_email: "Email Address",
-                form_subject: "Subject",
-                form_message: "Message",
-                form_send: "Send Message",
-                copyright: "© 2025 Rachid Ferhaoui. All rights reserved.",
-                privacy: "Privacy Policy",
-                terms: "Terms of Use"
+            'fr': {
+                'home': 'Accueil',
+                'about': 'À Propos',
+                'skills': 'Compétences',
+                'experience': 'Expérience',
+                'education': 'Formation',
+                'contact': 'Contact',
+                'welcome': 'Bienvenue sur mon portfolio',
+                'job_title': 'Spécialiste Réseaux & Systèmes',
+                'hero_desc': 'Spécialisé dans la gestion d\'infrastructures réseau avec une expertise en administration système, virtualisation et cybersécurité.',
+                'contact_me': 'Me Contacter',
+                'learn_more': 'En savoir plus',
+                'about_me': 'À Propos de Moi',
+                'about_desc1': 'Technicien Spécialisé En Systèmes Et Réseaux, récemment diplômé et passionné par l\'informatique et la gestion d\'infrastructures réseau.',
+                'about_desc2': 'Rigoureux, autonome et doté d\'un bon sens de l\'analyse, j\'ai acquis des compétences solides en administration système, virtualisation, sécurité réseau et supervision.',
+                'about_desc3': 'Je suis prêt à m\'investir pleinement dans un environnement professionnel pour contribuer activement à des projets techniques, assurer la disponibilité des systèmes, et participer à l\'évolution des infrastructures IT.',
+                'location': 'Localisation',
+                'phone': 'Téléphone',
+                'languages': 'Langues',
+                'skills_title': 'Compétences Techniques',
+                'networking_skills': 'Réseaux & Systèmes',
+                'network_management': 'Gestion de Réseaux',
+                'equipment_config': 'Configuration d\'Équipements',
+                'network_monitoring': 'Surveillance de Réseaux',
+                'ip_management': 'Gestion d\'Adresses IP',
+                'security_skills': 'Sécurité & Virtualisation',
+                'vpn_config': 'Configuration VPN',
+                'server_admin': 'Administration Serveur',
+                'virtualization': 'Virtualisation',
+                'firewall_management': 'Gestion de Pare-feu',
+                'software_tools': 'Logiciels & Outils',
+                'experience_title': 'Expérience Professionnelle',
+                'intern_title': 'Stagiaire Département IT',
+                'intern_desc1': 'Gestion et supervision de l\'infrastructure réseau et des systèmes pendant 2 ans',
+                'intern_desc2': 'Mise en œuvre de solutions open source pour réduire les coûts de gestion IT',
+                'intern_desc3': 'Optimisation de la disponibilité des services réseau avec une surveillance centralisée (Zabbix)',
+                'intern_desc4': 'Établissement d\'une politique d\'adressage IP efficace pour prévenir les conflits d\'adresses',
+                'academic_intern': 'Stagiaire Académique',
+                'academic_desc1': 'Mise en place d\'un environnement virtualisé avec Proxmox VE',
+                'academic_desc2': 'Installation et configuration de GLPI pour la gestion des ressources IT',
+                'academic_desc3': 'Déploiement d\'un serveur de sauvegarde avec TrueNAS pour la sécurité des données',
+                'academic_desc4': 'Supervision de l\'infrastructure avec Zabbix pour une meilleure visibilité',
+                'education_title': 'Formation & Certifications',
+                'education_subtitle': 'Formation',
+                'diploma_title': 'Diplôme en Systèmes et Réseaux',
+                'cyber_title': 'Formation Testeur d\'Intrusion Cybersécurité',
+                'math_title': 'Mathématiques et Applications',
+                'bac_title': 'Baccalauréat en Sciences Physiques et Chimiques',
+                'certifications_title': 'Certifications',
+                'cisco_cert': 'Introduction à la Cybersécurité - Ethical Hacker',
+                'cisco_desc': 'Certifié en fondamentaux de la cybersécurité et techniques de piratage éthique par Cisco Networking Academy.',
+                'network_cert': 'Administration Réseau',
+                'network_desc': 'Formation avancée en administration réseau, incluant le routage, la commutation et les protocoles de sécurité.',
+                'contact_title': 'Contactez-moi',
+                'get_in_touch': 'Restons en contact',
+                'contact_desc': 'Je suis intéressé par les opportunités où je peux contribuer avec mes compétences en administration réseau et gestion des systèmes. N\'hésitez pas à me contacter si vous souhaitez discuter de collaborations potentielles.',
+                'social_media': 'Réseaux Sociaux',
+                'form_name': 'Nom Complet',
+                'form_email': 'Adresse Email',
+                'form_subject': 'Sujet',
+                'form_message': 'Message',
+                'form_send': 'Envoyer le Message',
+                'copyright': '© 2025 Rachid Ferhaoui. Tous droits réservés.',
+                'privacy': 'Politique de confidentialité',
+                'terms': 'Conditions d\'utilisation'
             }
         };
 
         let currentLang = 'fr';
 
-        function switchLanguage(lang) {
+        function setLanguage(lang) {
             currentLang = lang;
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
@@ -954,83 +949,102 @@
                     element.textContent = translations[lang][key];
                 }
             });
-
-            // Update active language button
-            document.querySelectorAll('#lang-fr, #lang-fr-mobile').forEach(btn => {
-                if (lang === 'fr') {
-                    btn.classList.add('bg-primary', 'text-dark');
-                    btn.classList.remove('bg-gray-700', 'text-gray-300');
-                } else {
-                    btn.classList.remove('bg-primary', 'text-dark');
-                    btn.classList.add('bg-gray-700', 'text-gray-300');
-                }
-            });
-
-            document.querySelectorAll('#lang-en, #lang-en-mobile').forEach(btn => {
-                if (lang === 'en') {
-                    btn.classList.add('bg-primary', 'text-dark');
-                    btn.classList.remove('bg-gray-700', 'text-gray-300');
-                } else {
-                    btn.classList.remove('bg-primary', 'text-dark');
-                    btn.classList.add('bg-gray-700', 'text-gray-300');
-                }
-            });
+            
+            // Update language buttons
+            document.getElementById('lang-fr').className = lang === 'fr' ? 
+                'px-3 py-1 bg-primary text-dark rounded-md' : 'px-3 py-1 bg-gray-700 text-gray-300 rounded-md ml-2';
+            document.getElementById('lang-en').className = lang === 'en' ? 
+                'px-3 py-1 bg-primary text-dark rounded-md ml-2' : 'px-3 py-1 bg-gray-700 text-gray-300 rounded-md ml-2';
+            document.getElementById('lang-fr-mobile').className = lang === 'fr' ? 
+                'px-3 py-1 bg-primary text-dark rounded-md text-sm' : 'px-3 py-1 bg-gray-700 text-gray-300 rounded-md text-sm';
+            document.getElementById('lang-en-mobile').className = lang === 'en' ? 
+                'px-3 py-1 bg-primary text-dark rounded-md text-sm ml-2' : 'px-3 py-1 bg-gray-700 text-gray-300 rounded-md text-sm ml-2';
+                
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
         }
 
-        // Language button event listeners
-        document.getElementById('lang-fr').addEventListener('click', () => switchLanguage('fr'));
-        document.getElementById('lang-en').addEventListener('click', () => switchLanguage('en'));
-        document.getElementById('lang-fr-mobile').addEventListener('click', () => switchLanguage('fr'));
-        document.getElementById('lang-en-mobile').addEventListener('click', () => switchLanguage('en'));
+        // Mobile menu toggle
+        document.getElementById('menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
 
-        // Initialize with French
-        switchLanguage('fr');
+        // Language switchers
+        document.getElementById('lang-fr').addEventListener('click', () => setLanguage('fr'));
+        document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
+        document.getElementById('lang-fr-mobile').addEventListener('click', () => setLanguage('fr'));
+        document.getElementById('lang-en-mobile').addEventListener('click', () => setLanguage('en'));
+
+        // Animate skill bars when they come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const skillBars = document.querySelectorAll('.skill-bar');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const width = entry.target.style.width;
+                        entry.target.style.width = '0';
+                        setTimeout(() => {
+                            entry.target.style.width = width;
+                        }, 100);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            skillBars.forEach(bar => {
+                observer.observe(bar);
+            });
+
+            // Remove percentages from skill labels
+            document.querySelectorAll('.flex.justify-between.mb-2').forEach(el => {
+                const percentSpan = el.querySelector('span.text-primary');
+                if (percentSpan) {
+                    percentSpan.remove();
+                }
+            });
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
 
         // Contact form submission
         document.getElementById('contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert(currentLang === 'fr' ? 'Message envoyé avec succès!' : 'Message sent successfully!');
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            const subject = `Message from ${name} - Portfolio Contact`;
+            const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+            
+            window.location.href = `mailto:fe.rashed04@gmail.com?subject=${subject}&body=${body}`;
+            
+            // Reset form
             this.reset();
+            
+            // Show success message
+            alert(currentLang === 'fr' 
+                ? 'Merci pour votre message! Vous allez être redirigé vers votre client email.' 
+                : 'Thank you for your message! You will be redirected to your email client.');
         });
-
-        // Animate skill bars on scroll
-        function animateSkillBars() {
-            const skillBars = document.querySelectorAll('.skill-bar');
-            skillBars.forEach(bar => {
-                const width = bar.style.width;
-                bar.style.width = '0';
-                setTimeout(() => {
-                    bar.style.width = width;
-                }, 300);
-            });
-        }
-
-        // Intersection Observer for skill bars animation
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateSkillBars();
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        observer.observe(document.getElementById('skills'));
 
         // Simple network visualization
         function initNetworkVisualization() {
             const canvas = document.getElementById('network-canvas');
             if (!canvas) return;
 
-            const width = canvas.offsetWidth;
-            const height = canvas.offsetHeight;
-
             // Create nodes
             const nodes = [];
             for (let i = 0; i < 15; i++) {
                 nodes.push({
-                    x: Math.random() * width,
-                    y: Math.random() * height,
+                    x: Math.random() * canvas.offsetWidth,
+                    y: Math.random() * canvas.offsetHeight,
                     vx: (Math.random() - 0.5) * 0.5,
                     vy: (Math.random() - 0.5) * 0.5,
                     radius: 3 + Math.random() * 2
@@ -1039,13 +1053,10 @@
 
             // Draw function
             function draw() {
-                const ctx = canvas.getContext('2d');
-                ctx.clearRect(0, 0, width, height);
+                // Clear canvas
+                canvas.innerHTML = '';
                 
                 // Draw connections
-                ctx.strokeStyle = 'rgba(0, 212, 255, 0.2)';
-                ctx.lineWidth = 1;
-                
                 for (let i = 0; i < nodes.length; i++) {
                     for (let j = i + 1; j < nodes.length; j++) {
                         const dx = nodes[i].x - nodes[j].x;
@@ -1053,28 +1064,32 @@
                         const distance = Math.sqrt(dx * dx + dy * dy);
                         
                         if (distance < 100) {
-                            ctx.beginPath();
-                            ctx.moveTo(nodes[i].x, nodes[i].y);
-                            ctx.lineTo(nodes[j].x, nodes[j].y);
-                            ctx.stroke();
+                            const connection = document.createElement('div');
+                            connection.className = 'network-connection';
+                            connection.style.width = `${distance}px`;
+                            connection.style.left = `${nodes[i].x}px`;
+                            connection.style.top = `${nodes[i].y}px`;
+                            connection.style.transform = `rotate(${Math.atan2(dy, dx)}rad)`;
+                            canvas.appendChild(connection);
                         }
                     }
                 }
                 
                 // Draw nodes
                 for (let i = 0; i < nodes.length; i++) {
-                    ctx.beginPath();
-                    ctx.arc(nodes[i].x, nodes[i].y, nodes[i].radius, 0, Math.PI * 2);
-                    ctx.fillStyle = 'rgba(0, 212, 255, 0.8)';
-                    ctx.fill();
+                    const node = document.createElement('div');
+                    node.className = 'network-node';
+                    node.style.left = `${nodes[i].x - nodes[i].radius}px`;
+                    node.style.top = `${nodes[i].y - nodes[i].radius}px`;
+                    canvas.appendChild(node);
                     
                     // Update position
                     nodes[i].x += nodes[i].vx;
                     nodes[i].y += nodes[i].vy;
                     
                     // Bounce off walls
-                    if (nodes[i].x < 0 || nodes[i].x > width) nodes[i].vx *= -1;
-                    if (nodes[i].y < 0 || nodes[i].y > height) nodes[i].vy *= -1;
+                    if (nodes[i].x < 0 || nodes[i].x > canvas.offsetWidth) nodes[i].vx *= -1;
+                    if (nodes[i].y < 0 || nodes[i].y > canvas.offsetHeight) nodes[i].vy *= -1;
                 }
                 
                 requestAnimationFrame(draw);
