@@ -71,6 +71,9 @@
                                 transform: 'translateY(0)'
                             }
                         }
+                    },
+                    screens: {
+                        'xs': '475px',
                     }
                 }
             }
@@ -80,6 +83,7 @@
     <style>
         * {
             font-family: 'Josefin Sans', sans-serif;
+            box-sizing: border-box;
         }
         
         body {
@@ -112,8 +116,16 @@
         .section-title {
             position: relative;
             display: inline-block;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
             font-weight: 700;
+            font-size: 1.875rem;
+        }
+        
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 2.25rem;
+                margin-bottom: 2.5rem;
+            }
         }
         
         .section-title::after {
@@ -244,7 +256,13 @@
         .language-selector {
             display: flex;
             align-items: center;
-            margin-left: 1.5rem;
+            margin-left: 0.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .language-selector {
+                margin-left: 1.5rem;
+            }
         }
         
         .language-btn {
@@ -253,6 +271,13 @@
             font-weight: 600;
             transition: all 0.3s ease;
             border: 1px solid transparent;
+            font-size: 0.875rem;
+        }
+        
+        @media (min-width: 768px) {
+            .language-btn {
+                font-size: 1rem;
+            }
         }
         
         .language-btn.active {
@@ -273,8 +298,14 @@
         
         .tech-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
             gap: 1rem;
+        }
+        
+        @media (min-width: 640px) {
+            .tech-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
         }
         
         .tech-icon {
@@ -298,9 +329,16 @@
         .typing-animation {
             overflow: hidden;
             border-right: .15em solid #00d4ff;
-            white-space: nowrap;
+            white-space: normal;
             margin: 0 auto;
-            animation: typing 3.5s steps(40, end), blink 1s step-end infinite;
+            display: inline-block;
+        }
+        
+        @media (min-width: 768px) {
+            .typing-animation {
+                white-space: nowrap;
+                animation: typing 3.5s steps(40, end), blink 1s step-end infinite;
+            }
         }
         
         .glow {
@@ -310,10 +348,19 @@
         .network-visualization {
             position: relative;
             width: 100%;
-            height: 300px;
+            height: 250px;
             border-radius: 12px;
             overflow: hidden;
             background: rgba(0, 0, 0, 0.3);
+            margin: 0 auto;
+            max-width: 500px;
+        }
+        
+        @media (min-width: 768px) {
+            .network-visualization {
+                height: 300px;
+                max-width: none;
+            }
         }
         
         .binary-background {
@@ -391,14 +438,153 @@
             background: linear-gradient(to right, transparent, rgba(0, 212, 255, 0.3), transparent);
             margin: 3rem 0;
         }
+        
+        /* Responsive Typography */
+        h1 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+        }
+        
+        @media (min-width: 640px) {
+            h1 {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 3.5rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            h1 {
+                font-size: 4rem;
+            }
+        }
+        
+        /* Responsive Padding/Margins */
+        .container {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        
+        @media (min-width: 640px) {
+            .container {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .container {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+        }
+        
+        /* Hexagon Responsiveness */
+        .hexagon-wrapper {
+            width: 100%;
+            max-width: 20rem;
+            margin: 0 auto;
+        }
+        
+        .hexagon {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1 / 1.1547; /* Hexagon aspect ratio */
+        }
+        
+        /* Project Cards Responsive Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        @media (min-width: 640px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .projects-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        /* Contact Form Responsive */
+        .contact-form-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        @media (min-width: 640px) {
+            .contact-form-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* Info Grid Responsive */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        
+        @media (min-width: 640px) {
+            .info-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* Navigation Responsive */
+        .nav-container {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-container {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+        }
+        
+        /* Hero Section Responsive Spacing */
+        .hero-section {
+            padding-top: 7rem;
+            padding-bottom: 5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .hero-section {
+                padding-top: 9rem;
+                padding-bottom: 7rem;
+            }
+        }
+        
+        /* Mobile Menu Improvements */
+        #mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        #mobile-menu.show {
+            max-height: 500px;
+        }
     </style>
 </head>
 <body class="font-josefin">
     <!-- Navigation -->
-    <nav class="fixed w-full bg-dark/90 backdrop-blur-sm z-50 border-b border-gray-800">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold gradient-text">Rachid Ferhaoui</a>
-            <div class="hidden md:flex items-center space-x-10 text-lg">
+    <nav class="fixed w-full bg-dark/95 backdrop-blur-sm z-50 border-b border-gray-800">
+        <div class="nav-container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl sm:text-2xl font-bold gradient-text">Rachid Ferhaoui</a>
+            <div class="hidden md:flex items-center space-x-6 lg:space-x-10 text-base lg:text-lg">
                 <a href="#home" class="nav-link font-medium" data-i18n="home">Accueil</a>
                 <a href="#about" class="nav-link font-medium" data-i18n="about">À Propos</a>
                 <a href="#skills" class="nav-link font-medium" data-i18n="skills">Compétences</a>
@@ -415,7 +601,7 @@
             </div>
             <div class="md:hidden flex items-center">
                 <!-- Language Selector for Mobile -->
-                <div class="language-selector mr-4">
+                <div class="language-selector mr-3">
                     <button id="lang-fr-mobile" class="language-btn active text-sm">FR</button>
                     <button id="lang-en-mobile" class="language-btn ml-2 text-sm">EN</button>
                 </div>
@@ -425,7 +611,7 @@
             </div>
         </div>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-card px-6 pt-2 pb-4 border-b border-gray-800">
+        <div id="mobile-menu" class="md:hidden bg-card px-4 pt-2 pb-4 border-b border-gray-800">
             <a href="#home" class="block py-3 border-b border-gray-800" data-i18n="home">Accueil</a>
             <a href="#about" class="block py-3 border-b border-gray-800" data-i18n="about">À Propos</a>
             <a href="#skills" class="block py-3 border-b border-gray-800" data-i18n="skills">Compétences</a>
@@ -437,66 +623,64 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="pt-28 pb-20 md:pt-36 md:pb-28 hero-gradient text-white relative overflow-hidden">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center relative z-10">
-            <div class="md:w-1/2 mb-12 md:mb-0">
-                <div class="inline-block px-4 py-2 bg-primary/10 rounded-full border border-primary/20 mb-6">
+    <section id="home" class="hero-section hero-gradient text-white relative overflow-hidden">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center relative z-10">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <div class="inline-block px-3 py-2 bg-primary/10 rounded-full border border-primary/20 mb-4 text-sm md:text-base">
                     <span class="text-primary font-medium" data-i18n="welcome">Bienvenue sur mon portfolio</span>
                 </div>
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Rachid Ferhaoui</h1>
-                <h2 class="text-2xl md:text-3xl mb-6 text-primary typing-animation" data-i18n="job_title">Spécialiste Réseaux & Systèmes</h2>
-                <p class="text-lg mb-8 max-w-lg text-gray-300" data-i18n="hero_desc">Spécialisé dans la gestion d'infrastructures réseau avec une expertise en administration système, virtualisation et cybersécurité.</p>
-                <div class="flex space-x-4">
-                    <a href="#contact" class="bg-primary hover:bg-secondary text-dark px-6 py-3 rounded-lg font-medium transition duration-300 shadow-lg glow" data-i18n="contact_me">Me Contacter</a>
-                    <a href="#projects" class="border border-primary text-primary hover:bg-primary/10 px-6 py-3 rounded-lg font-medium transition duration-300" data-i18n="view_projects">Voir mes Projets</a>
+                <h1 class="mb-4">Rachid Ferhaoui</h1>
+                <h2 class="text-xl md:text-2xl lg:text-3xl mb-6 text-primary typing-animation" data-i18n="job_title">Spécialiste Réseaux & Systèmes</h2>
+                <p class="text-base md:text-lg mb-6 text-gray-300 max-w-lg" data-i18n="hero_desc">Spécialisé dans la gestion d'infrastructures réseau avec une expertise en administration système, virtualisation et cybersécurité.</p>
+                <div class="flex flex-col xs:flex-row gap-4">
+                    <a href="#contact" class="bg-primary hover:bg-secondary text-dark px-5 py-3 rounded-lg font-medium transition duration-300 shadow-lg glow text-center" data-i18n="contact_me">Me Contacter</a>
+                    <a href="#projects" class="border border-primary text-primary hover:bg-primary/10 px-5 py-3 rounded-lg font-medium transition duration-300 text-center" data-i18n="view_projects">Voir mes Projets</a>
                 </div>
             </div>
-            <div class="md:w-1/2 flex justify-center">
-                <div class="relative">
+            <div class="md:w-1/2 flex justify-center mt-10 md:mt-0">
+                <div class="relative w-full max-w-md">
                     <div class="network-visualization floating">
                         <div class="binary-background"></div>
                         <div id="network-canvas" class="w-full h-full"></div>
                     </div>
-                    <div class="absolute -top-2 -right-4 w-24 h-24 bg-accent/30 rounded-full"></div>
-                    <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-secondary/40 rounded-full"></div>
+                    <div class="absolute -top-2 -right-4 w-20 h-20 md:w-24 md:h-24 bg-accent/30 rounded-full"></div>
+                    <div class="absolute -bottom-4 -left-4 w-12 h-12 md:w-16 md:h-16 bg-secondary/40 rounded-full"></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-dark">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold section-title" data-i18n="about_me">À Propos de Moi</h2>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="relative">
-                    <div class="hexagon bg-card w-80 h-80 mx-auto flex items-center justify-center glow floating">
-                        <div class="hexagon bg-gradient-to-br from-primary to-accent w-72 h-72 flex items-center justify-center">
+    <section id="about" class="py-12 md:py-20 bg-dark">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title" data-i18n="about_me">À Propos de Moi</h2>
+            <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
+                <div class="hexagon-wrapper">
+                    <div class="hexagon bg-card flex items-center justify-center glow floating mx-auto">
+                        <div class="hexagon bg-gradient-to-br from-primary to-accent flex items-center justify-center w-full h-full">
                             <lottie-player 
                                 src="https://assets1.lottiefiles.com/packages/lf20_vybwn7df.json" 
                                 background="transparent" 
                                 speed="1" 
-                                style="width: 200px; height: 200px;" 
+                                style="width: 60%; height: 60%;" 
                                 loop 
                                 autoplay>
                             </lottie-player>
                         </div>
                     </div>
-                    <div class="absolute -top-4 -left-4 w-8 h-8 bg-primary rounded-full animate-pulse"></div>
-                    <div class="absolute -bottom-4 -right-4 w-6 h-6 bg-accent rounded-full animate-pulse" style="animation-delay: 0.5s;"></div>
                 </div>
-                <div>
-                    <p class="mb-6 text-lg leading-relaxed text-gray-300" data-i18n="about_desc1">Technicien Spécialisé En Systèmes Et Réseaux, récemment diplômé et passionné par l'informatique et la gestion d'infrastructures réseau.</p>
-                    <p class="mb-6 leading-relaxed text-gray-300" data-i18n="about_desc2">Rigoureux, autonome et doté d'un bon sens de l'analyse, j'ai acquis des compétences solides en administration système, virtualisation, sécurité réseau et supervision.</p>
-                    <p class="mb-8 leading-relaxed text-gray-300" data-i18n="about_desc3">Je suis prêt à m'investir pleinement dans un environnement professionnel pour contribuer activement à des projets techniques, assurer la disponibilité des systèmes, et participer à l'évolution des infrastructures IT.</p>
-                    <div class="grid grid-cols-2 gap-4">
+                <div class="md:w-1/2">
+                    <p class="mb-4 text-base md:text-lg leading-relaxed text-gray-300" data-i18n="about_desc1">Technicien Spécialisé En Systèmes Et Réseaux, récemment diplômé et passionné par l'informatique et la gestion d'infrastructures réseau.</p>
+                    <p class="mb-4 leading-relaxed text-gray-300" data-i18n="about_desc2">Rigoureux, autonome et doté d'un bon sens de l'analyse, j'ai acquis des compétences solides en administration système, virtualisation, sécurité réseau et supervision.</p>
+                    <p class="mb-6 leading-relaxed text-gray-300" data-i18n="about_desc3">Je suis prêt à m'investir pleinement dans un environnement professionnel pour contribuer activement à des projets techniques, assurer la disponibilité des systèmes, et participer à l'évolution des infrastructures IT.</p>
+                    <div class="info-grid">
                         <div class="flex items-center">
                             <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary mr-3">
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div>
                                 <p class="text-sm text-gray-500" data-i18n="location">Localisation</p>
-                                <p class="font-medium">Méknes, Maroc</p>
+                                <p class="font-medium text-sm md:text-base">Méknes, Maroc</p>
                             </div>
                         </div>
                         <div class="flex items-center">
@@ -505,7 +689,7 @@
                             </div>
                             <div>
                                 <p class="text-sm text-gray-500" data-i18n="phone">Téléphone</p>
-                                <p class="font-medium">+212611915325</p>
+                                <p class="font-medium text-sm md:text-base">+212611915325</p>
                             </div>
                         </div>
                         <div class="flex items-center">
@@ -514,7 +698,7 @@
                             </div>
                             <div>
                                 <p class="text-sm text-gray-500">Email</p>
-                                <p class="font-medium">fe.rashed04@gmail.com</p>
+                                <p class="font-medium text-sm md:text-base">fe.rashed04@gmail.com</p>
                             </div>
                         </div>
                         <div class="flex items-center">
@@ -523,7 +707,7 @@
                             </div>
                             <div>
                                 <p class="text-sm text-gray-500" data-i18n="languages">Langues</p>
-                                <p class="font-medium">Arabe, Français, Anglais</p>
+                                <p class="font-medium text-sm md:text-base">Arabe, Français, Anglais</p>
                             </div>
                         </div>
                     </div>
@@ -533,79 +717,79 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-card">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold section-title" data-i18n="skills_title">Compétences Techniques</h2>
-            <div class="grid md:grid-cols-2 gap-10">
+    <section id="skills" class="py-12 md:py-20 bg-card">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title" data-i18n="skills_title">Compétences Techniques</h2>
+            <div class="grid md:grid-cols-2 gap-8 md:gap-10">
                 <div>
-                    <h3 class="text-xl font-semibold mb-6 text-primary" data-i18n="networking_skills">Réseaux & Systèmes</h3>
-                    <div class="space-y-6">
+                    <h3 class="text-lg md:text-xl font-semibold mb-4 md:mb-6 text-primary" data-i18n="networking_skills">Réseaux & Systèmes</h3>
+                    <div class="space-y-4 md:space-y-6">
                         <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium" data-i18n="network_management">Gestion de Réseaux</span>
+                            <div class="flex justify-between mb-1 md:mb-2">
+                                <span class="font-medium text-sm md:text-base" data-i18n="network_management">Gestion de Réseaux</span>
                             </div>
-                            <div class="h-3 bg-gray-700 rounded-full overflow-hidden">
+                            <div class="h-2 md:h-3 bg-gray-700 rounded-full overflow-hidden">
                                 <div class="h-full bg-gradient-to-r from-primary to-secondary skill-bar rounded-full" style="width: 90%"></div>
                             </div>
                         </div>
                         <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium" data-i18n="equipment_config">Configuration d'Équipements</span>
+                            <div class="flex justify-between mb-1 md:mb-2">
+                                <span class="font-medium text-sm md:text-base" data-i18n="equipment_config">Configuration d'Équipements</span>
                             </div>
-                            <div class="h-3 bg-gray-700 rounded-full overflow-hidden">
+                            <div class="h-2 md:h-3 bg-gray-700 rounded-full overflow-hidden">
                                 <div class="h-full bg-gradient-to-r from-primary to-secondary skill-bar rounded-full" style="width: 85%"></div>
                             </div>
                         </div>
                         <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium" data-i18n="network_monitoring">Surveillance de Réseaux</span>
+                            <div class="flex justify-between mb-1 md:mb-2">
+                                <span class="font-medium text-sm md:text-base" data-i18n="network_monitoring">Surveillance de Réseaux</span>
                             </div>
-                            <div class="h-3 bg-gray-700 rounded-full overflow-hidden">
+                            <div class="h-2 md:h-3 bg-gray-700 rounded-full overflow-hidden">
                                 <div class="h-full bg-gradient-to-r from-primary to-secondary skill-bar rounded-full" style="width: 88%"></div>
                             </div>
                         </div>
                         <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium" data-i18n="ip_management">Gestion d'Adresses IP</span>
+                            <div class="flex justify-between mb-1 md:mb-2">
+                                <span class="font-medium text-sm md:text-base" data-i18n="ip_management">Gestion d'Adresses IP</span>
                             </div>
-                            <div class="h-3 bg-gray-700 rounded-full overflow-hidden">
+                            <div class="h-2 md:h-3 bg-gray-700 rounded-full overflow-hidden">
                                 <div class="h-full bg-gradient-to-r from-primary to-secondary skill-bar rounded-full" style="width: 92%"></div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <h3 class="text-xl font-semibold mb-6 text-primary" data-i18n="security_skills">Sécurité & Virtualisation</h3>
-                    <div class="space-y-6">
+                    <h3 class="text-lg md:text-xl font-semibold mb-4 md:mb-6 text-primary" data-i18n="security_skills">Sécurité & Virtualisation</h3>
+                    <div class="space-y-4 md:space-y-6">
                         <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium" data-i18n="vpn_config">Configuration VPN</span>
+                            <div class="flex justify-between mb-1 md:mb-2">
+                                <span class="font-medium text-sm md:text-base" data-i18n="vpn_config">Configuration VPN</span>
                             </div>
-                            <div class="h-3 bg-gray-700 rounded-full overflow-hidden">
+                            <div class="h-2 md:h-3 bg-gray-700 rounded-full overflow-hidden">
                                 <div class="h-full bg-gradient-to-r from-primary to-secondary skill-bar rounded-full" style="width: 80%"></div>
                             </div>
                         </div>
                         <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium" data-i18n="server_admin">Administration Serveur</span>
+                            <div class="flex justify-between mb-1 md:mb-2">
+                                <span class="font-medium text-sm md:text-base" data-i18n="server_admin">Administration Serveur</span>
                             </div>
-                            <div class="h-3 bg-gray-700 rounded-full overflow-hidden">
+                            <div class="h-2 md:h-3 bg-gray-700 rounded-full overflow-hidden">
                                 <div class="h-full bg-gradient-to-r from-primary to-secondary skill-bar rounded-full" style="width: 85%"></div>
                             </div>
                         </div>
                         <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium" data-i18n="virtualization">Virtualisation</span>
+                            <div class="flex justify-between mb-1 md:mb-2">
+                                <span class="font-medium text-sm md:text-base" data-i18n="virtualization">Virtualisation</span>
                             </div>
-                            <div class="h-3 bg-gray-700 rounded-full overflow-hidden">
+                            <div class="h-2 md:h-3 bg-gray-700 rounded-full overflow-hidden">
                                 <div class="h-full bg-gradient-to-r from-primary to-secondary skill-bar rounded-full" style="width: 87%"></div>
                             </div>
                         </div>
                         <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium" data-i18n="firewall_management">Gestion de Pare-feu</span>
+                            <div class="flex justify-between mb-1 md:mb-2">
+                                <span class="font-medium text-sm md:text-base" data-i18n="firewall_management">Gestion de Pare-feu</span>
                             </div>
-                            <div class="h-3 bg-gray-700 rounded-full overflow-hidden">
+                            <div class="h-2 md:h-3 bg-gray-700 rounded-full overflow-hidden">
                                 <div class="h-full bg-gradient-to-r from-primary to-secondary skill-bar rounded-full" style="width: 83%"></div>
                             </div>
                         </div>
@@ -613,48 +797,48 @@
                 </div>
             </div>
 
-            <div class="mt-16">
-                <h3 class="text-xl font-semibold mb-6 text-primary" data-i18n="software_tools">Logiciels & Outils</h3>
+            <div class="mt-10 md:mt-16">
+                <h3 class="text-lg md:text-xl font-semibold mb-4 md:mb-6 text-primary" data-i18n="software_tools">Logiciels & Outils</h3>
                 <div class="tech-grid">
                     <div class="tech-icon">
-                        <i class="fab fa-linux text-4xl text-primary mb-2"></i>
-                        <span class="font-medium text-sm">Linux</span>
+                        <i class="fab fa-linux text-2xl md:text-4xl text-primary mb-2"></i>
+                        <span class="font-medium text-xs md:text-sm">Linux</span>
                     </div>
                     <div class="tech-icon">
-                        <i class="fab fa-windows text-4xl text-primary mb-2"></i>
-                        <span class="font-medium text-sm">Windows</span>
+                        <i class="fab fa-windows text-2xl md:text-4xl text-primary mb-2"></i>
+                        <span class="font-medium text-xs md:text-sm">Windows</span>
                     </div>
                     <div class="tech-icon">
-                        <i class="fas fa-server text-4xl text-primary mb-2"></i>
-                        <span class="font-medium text-sm">VMware</span>
+                        <i class="fas fa-server text-2xl md:text-4xl text-primary mb-2"></i>
+                        <span class="font-medium text-xs md:text-sm">VMware</span>
                     </div>
                     <div class="tech-icon">
-                        <i class="fas fa-desktop text-4xl text-primary mb-2"></i>
-                        <span class="font-medium text-sm">VirtualBox</span>
+                        <i class="fas fa-desktop text-2xl md:text-4xl text-primary mb-2"></i>
+                        <span class="font-medium text-xs md:text-sm">VirtualBox</span>
                     </div>
                     <div class="tech-icon">
-                        <i class="fas fa-shield-alt text-4xl text-primary mb-2"></i>
-                        <span class="font-medium text-sm">Metasploit</span>
+                        <i class="fas fa-shield-alt text-2xl md:text-4xl text-primary mb-2"></i>
+                        <span class="font-medium text-xs md:text-sm">Metasploit</span>
                     </div>
                     <div class="tech-icon">
-                        <i class="fas fa-search text-4xl text-primary mb-2"></i>
-                        <span class="font-medium text-sm">Nmap</span>
+                        <i class="fas fa-search text-2xl md:text-4xl text-primary mb-2"></i>
+                        <span class="font-medium text-xs md:text-sm">Nmap</span>
                     </div>
                     <div class="tech-icon">
-                        <i class="fas fa-chart-line text-4xl text-primary mb-2"></i>
-                        <span class="font-medium text-sm">Zabbix</span>
+                        <i class="fas fa-chart-line text-2xl md:text-4xl text-primary mb-2"></i>
+                        <span class="font-medium text-xs md:text-sm">Zabbix</span>
                     </div>
                     <div class="tech-icon">
-                        <i class="fas fa-tools text-4xl text-primary mb-2"></i>
-                        <span class="font-medium text-sm">GLPI</span>
+                        <i class="fas fa-tools text-2xl md:text-4xl text-primary mb-2"></i>
+                        <span class="font-medium text-xs md:text-sm">GLPI</span>
                     </div>
                     <div class="tech-icon">
-                        <i class="fas fa-database text-4xl text-primary mb-2"></i>
-                        <span class="font-medium text-sm">TrueNAS</span>
+                        <i class="fas fa-database text-2xl md:text-4xl text-primary mb-2"></i>
+                        <span class="font-medium text-xs md:text-sm">TrueNAS</span>
                     </div>
                     <div class="tech-icon">
-                        <i class="fas fa-eye text-4xl text-primary mb-2"></i>
-                        <span class="font-medium text-sm">Snort</span>
+                        <i class="fas fa-eye text-2xl md:text-4xl text-primary mb-2"></i>
+                        <span class="font-medium text-xs md:text-sm">Snort</span>
                     </div>
                 </div>
             </div>
@@ -662,66 +846,66 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-20 bg-dark">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold section-title" data-i18n="experience_title">Expérience Professionnelle</h2>
-            <div class="grid md:grid-cols-2 gap-8 mt-12">
-                <div class="card-hover p-6 rounded-xl cyber-border">
-                    <div class="flex items-start mb-4">
-                        <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center text-primary mr-4">
-                            <i class="fas fa-laptop-code text-2xl"></i>
+    <section id="experience" class="py-12 md:py-20 bg-dark">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title" data-i18n="experience_title">Expérience Professionnelle</h2>
+            <div class="grid md:grid-cols-2 gap-6 md:gap-8 mt-8 md:mt-12">
+                <div class="card-hover p-4 md:p-6 rounded-xl cyber-border">
+                    <div class="flex items-start mb-3 md:mb-4">
+                        <div class="w-10 h-10 md:w-14 md:h-14 bg-primary/10 rounded-lg flex items-center justify-center text-primary mr-3 md:mr-4">
+                            <i class="fas fa-laptop-code text-xl md:text-2xl"></i>
                         </div>
                         <div>
-                            <h3 class="text-xl font-semibold text-primary" data-i18n="intern_title">Stagiaire Département IT</h3>
-                            <p class="text-secondary font-medium">ISTAG Bab Tizimi • 2023 - 2025</p>
+                            <h3 class="text-lg md:text-xl font-semibold text-primary" data-i18n="intern_title">Stagiaire Département IT</h3>
+                            <p class="text-secondary font-medium text-sm md:text-base">ISTAG Bab Tizimi • 2023 - 2025</p>
                         </div>
                     </div>
-                    <ul class="space-y-3 mt-4">
+                    <ul class="space-y-2 md:space-y-3 mt-3 md:mt-4">
                         <li class="flex items-start">
-                            <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-                            <span data-i18n="intern_desc1">Gestion et supervision de l'infrastructure réseau et des systèmes pendant 2 ans</span>
+                            <i class="fas fa-check-circle text-accent mt-1 mr-2 text-sm"></i>
+                            <span class="text-sm md:text-base" data-i18n="intern_desc1">Gestion et supervision de l'infrastructure réseau et des systèmes pendant 2 ans</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-                            <span data-i18n="intern_desc2">Mise en œuvre de solutions open source pour réduire les coûts de gestion IT</span>
+                            <i class="fas fa-check-circle text-accent mt-1 mr-2 text-sm"></i>
+                            <span class="text-sm md:text-base" data-i18n="intern_desc2">Mise en œuvre de solutions open source pour réduire les coûts de gestion IT</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-                            <span data-i18n="intern_desc3">Optimisation de la disponibilité des services réseau avec une surveillance centralisée (Zabbix)</span>
+                            <i class="fas fa-check-circle text-accent mt-1 mr-2 text-sm"></i>
+                            <span class="text-sm md:text-base" data-i18n="intern_desc3">Optimisation de la disponibilité des services réseau avec une surveillance centralisée (Zabbix)</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-                            <span data-i18n="intern_desc4">Établissement d'une politique d'adressage IP efficace pour prévenir les conflits d'adresses</span>
+                            <i class="fas fa-check-circle text-accent mt-1 mr-2 text-sm"></i>
+                            <span class="text-sm md:text-base" data-i18n="intern_desc4">Établissement d'une politique d'adressage IP efficace pour prévenir les conflits d'adresses</span>
                         </li>
                     </ul>
                 </div>
                 
-                <div class="card-hover p-6 rounded-xl cyber-border">
-                    <div class="flex items-start mb-4">
-                        <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center text-primary mr-4">
-                            <i class="fas fa-university text-2xl"></i>
+                <div class="card-hover p-4 md:p-6 rounded-xl cyber-border">
+                    <div class="flex items-start mb-3 md:mb-4">
+                        <div class="w-10 h-10 md:w-14 md:h-14 bg-primary/10 rounded-lg flex items-center justify-center text-primary mr-3 md:mr-4">
+                            <i class="fas fa-university text-xl md:text-2xl"></i>
                         </div>
                         <div>
-                            <h3 class="text-xl font-semibold text-primary" data-i18n="academic_intern">Stagiaire Académique</h3>
-                            <p class="text-secondary font-medium">Faculté des Sciences, Meknès • 2024 - 2025</p>
+                            <h3 class="text-lg md:text-xl font-semibold text-primary" data-i18n="academic_intern">Stagiaire Académique</h3>
+                            <p class="text-secondary font-medium text-sm md:text-base">Faculté des Sciences, Meknès • 2024 - 2025</p>
                         </div>
                     </div>
-                    <ul class="space-y-3 mt-4">
+                    <ul class="space-y-2 md:space-y-3 mt-3 md:mt-4">
                         <li class="flex items-start">
-                            <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-                            <span data-i18n="academic_desc1">Mise en place d'un environnement virtualisé avec Proxmox VE</span>
+                            <i class="fas fa-check-circle text-accent mt-1 mr-2 text-sm"></i>
+                            <span class="text-sm md:text-base" data-i18n="academic_desc1">Mise en place d'un environnement virtualisé avec Proxmox VE</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-                            <span data-i18n="academic_desc2">Installation et configuration de GLPI pour la gestion des ressources IT</span>
+                            <i class="fas fa-check-circle text-accent mt-1 mr-2 text-sm"></i>
+                            <span class="text-sm md:text-base" data-i18n="academic_desc2">Installation et configuration de GLPI pour la gestion des ressources IT</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-                            <span data-i18n="academic_desc3">Déploiement d'un serveur de sauvegarde avec TrueNAS pour la sécurité des données</span>
+                            <i class="fas fa-check-circle text-accent mt-1 mr-2 text-sm"></i>
+                            <span class="text-sm md:text-base" data-i18n="academic_desc3">Déploiement d'un serveur de sauvegarde avec TrueNAS pour la sécurité des données</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
-                            <span data-i18n="academic_desc4">Supervision de l'infrastructure avec Zabbix pour une meilleure visibilité</span>
+                            <i class="fas fa-check-circle text-accent mt-1 mr-2 text-sm"></i>
+                            <span class="text-sm md:text-base" data-i18n="academic_desc4">Supervision de l'infrastructure avec Zabbix pour une meilleure visibilité</span>
                         </li>
                     </ul>
                 </div>
@@ -730,59 +914,59 @@
     </section>
 
     <!-- Education Section -->
-    <section id="education" class="py-20 bg-card">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold section-title" data-i18n="education_title">Formation & Certifications</h2>
+    <section id="education" class="py-12 md:py-20 bg-card">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title" data-i18n="education_title">Formation & Certifications</h2>
             
-            <div class="grid md:grid-cols-2 gap-8 mt-12">
+            <div class="grid md:grid-cols-2 gap-8 md:gap-8 mt-8 md:mt-12">
                 <div>
-                    <h3 class="text-xl font-semibold mb-6 text-primary" data-i18n="education_subtitle">Formation</h3>
-                    <div class="space-y-8">
+                    <h3 class="text-lg md:text-xl font-semibold mb-4 md:mb-6 text-primary" data-i18n="education_subtitle">Formation</h3>
+                    <div class="space-y-6 md:space-y-8">
                         <div class="timeline-item">
-                            <h4 class="text-lg font-semibold" data-i18n="diploma_title">Diplôme en Systèmes et Réseaux</h4>
-                            <p class="text-secondary font-medium">ISTAG de Bab Tizimi, Meknès • 2023 - 2025</p>
+                            <h4 class="text-base md:text-lg font-semibold" data-i18n="diploma_title">Diplôme en Systèmes et Réseaux</h4>
+                            <p class="text-secondary font-medium text-sm md:text-base">ISTAG de Bab Tizimi, Meknès • 2023 - 2025</p>
                         </div>
                         <div class="timeline-item">
-                            <h4 class="text-lg font-semibold" data-i18n="cyber_title">Formation Testeur d'Intrusion Cybersécurité</h4>
-                            <p class="text-secondary font-medium">2024 - 2025</p>
+                            <h4 class="text-base md:text-lg font-semibold" data-i18n="cyber_title">Formation Testeur d'Intrusion Cybersécurité</h4>
+                            <p class="text-secondary font-medium text-sm md:text-base">2024 - 2025</p>
                         </div>
                         <div class="timeline-item">
-                            <h4 class="text-lg font-semibold" data-i18n="math_title">Mathématiques et Applications</h4>
-                            <p class="text-secondary font-medium">Faculté des Sciences, Meknès • 2022 - 2023</p>
+                            <h4 class="text-base md:text-lg font-semibold" data-i18n="math_title">Mathématiques et Applications</h4>
+                            <p class="text-secondary font-medium text-sm md:text-base">Faculté des Sciences, Meknès • 2022 - 2023</p>
                         </div>
                         <div class="timeline-item">
-                            <h4 class="text-lg font-semibold" data-i18n="bac_title">Baccalauréat en Sciences Physiques et Chimiques</h4>
-                            <p class="text-secondary font-medium">Lycée Qualifiant Ait Assm • 2021 - 2022</p>
+                            <h4 class="text-base md:text-lg font-semibold" data-i18n="bac_title">Baccalauréat en Sciences Physiques et Chimiques</h4>
+                            <p class="text-secondary font-medium text-sm md:text-base">Lycée Qualifiant Ait Assm • 2021 - 2022</p>
                         </div>
                     </div>
                 </div>
                 
-                <div>
-                    <h3 class="text-xl font-semibold mb-6 text-primary" data-i18n="certifications_title">Certifications</h3>
-                    <div class="card-hover p-6 rounded-xl">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mr-4">
-                                <i class="fas fa-certificate text-xl"></i>
+                <div class="mt-8 md:mt-0">
+                    <h3 class="text-lg md:text-xl font-semibold mb-4 md:mb-6 text-primary" data-i18n="certifications_title">Certifications</h3>
+                    <div class="card-hover p-4 md:p-6 rounded-xl">
+                        <div class="flex items-center mb-3 md:mb-4">
+                            <div class="w-10 h-10 md:w-12 md:h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mr-3 md:mr-4">
+                                <i class="fas fa-certificate text-lg md:text-xl"></i>
                             </div>
                             <div>
-                                <h4 class="text-lg font-semibold" data-i18n="cisco_cert">Introduction à la Cybersécurité - Ethical Hacker</h4>
-                                <p class="text-secondary font-medium">Cisco • 2025</p>
+                                <h4 class="text-base md:text-lg font-semibold" data-i18n="cisco_cert">Introduction à la Cybersécurité - Ethical Hacker</h4>
+                                <p class="text-secondary font-medium text-sm md:text-base">Cisco • 2025</p>
                             </div>
                         </div>
-                        <p class="text-gray-400" data-i18n="cisco_desc">Certifié en fondamentaux de la cybersécurité et techniques de piratage éthique par Cisco Networking Academy.</p>
+                        <p class="text-gray-400 text-sm md:text-base" data-i18n="cisco_desc">Certifié en fondamentaux de la cybersécurité et techniques de piratage éthique par Cisco Networking Academy.</p>
                     </div>
                     
-                    <div class="mt-8 card-hover p-6 rounded-xl">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mr-4">
-                                <i class="fas fa-network-wired text-xl"></i>
+                    <div class="mt-6 md:mt-8 card-hover p-4 md:p-6 rounded-xl">
+                        <div class="flex items-center mb-3 md:mb-4">
+                            <div class="w-10 h-10 md:w-12 md:h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mr-3 md:mr-4">
+                                <i class="fas fa-network-wired text-lg md:text-xl"></i>
                             </div>
                             <div>
-                                <h4 class="text-lg font-semibold" data-i18n="network_cert">Administration Réseau</h4>
-                                <p class="text-secondary font-medium">ISTAG • 2024</p>
+                                <h4 class="text-base md:text-lg font-semibold" data-i18n="network_cert">Administration Réseau</h4>
+                                <p class="text-secondary font-medium text-sm md:text-base">ISTAG • 2024</p>
                             </div>
                         </div>
-                        <p class="text-gray-400" data-i18n="network_desc">Certification en gestion d'infrastructures réseau, configuration d'équipements et supervision de réseaux.</p>
+                        <p class="text-gray-400 text-sm md:text-base" data-i18n="network_desc">Certification en gestion d'infrastructures réseau, configuration d'équipements et supervision de réseaux.</p>
                     </div>
                 </div>
             </div>
@@ -790,205 +974,205 @@
     </section>
 
     <!-- Cybersecurity & SOC Projects Section -->
-    <section id="projects" class="py-20 bg-dark">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold section-title" data-i18n="projects_title">Cybersecurity & SOC Projects</h2>
-            <p class="text-lg text-gray-400 mb-12 max-w-3xl" data-i18n="projects_subtitle">A collection of hands-on cybersecurity projects focusing on SOC operations, threat detection, SIEM implementation, and security monitoring.</p>
+    <section id="projects" class="py-12 md:py-20 bg-dark">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title" data-i18n="projects_title">Cybersecurity & SOC Projects</h2>
+            <p class="text-base md:text-lg text-gray-400 mb-8 md:mb-12" data-i18n="projects_subtitle">A collection of hands-on cybersecurity projects focusing on SOC operations, threat detection, SIEM implementation, and security monitoring.</p>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="projects-grid">
                 <!-- Project 1 -->
-                <div class="project-card p-6">
+                <div class="project-card p-4 md:p-6">
                     <div class="project-icon">
-                        <i class="fas fa-robot text-xl text-primary"></i>
+                        <i class="fas fa-robot text-lg md:text-xl text-primary"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3 text-primary">Automated MISP Threat Intelligence Pipeline with Sigma, Wazuh, Suricata & Telegram Alerts</h3>
-                    <p class="text-gray-400 mb-4">Automated threat intelligence pipeline integrating MISP with SOC tools for real-time threat detection and Telegram alerting.</p>
-                    <div class="flex flex-wrap gap-2 mt-4">
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">MISP</span>
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Wazuh</span>
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Telegram API</span>
+                    <h3 class="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-primary">Automated MISP Threat Intelligence Pipeline with Sigma, Wazuh, Suricata & Telegram Alerts</h3>
+                    <p class="text-gray-400 text-sm md:text-base mb-3 md:mb-4">Automated threat intelligence pipeline integrating MISP with SOC tools for real-time threat detection and Telegram alerting.</p>
+                    <div class="flex flex-wrap gap-1 md:gap-2 mt-3 md:mt-4">
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">MISP</span>
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Wazuh</span>
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Telegram API</span>
                     </div>
                 </div>
                 
                 <!-- Project 2 -->
-                <div class="project-card p-6">
+                <div class="project-card p-4 md:p-6">
                     <div class="project-icon">
-                        <i class="fas fa-search text-xl text-primary"></i>
+                        <i class="fas fa-search text-lg md:text-xl text-primary"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3 text-primary">Web Application Attack Detection & Investigation Using Splunk SIEM</h3>
-                    <p class="text-gray-400 mb-4">Web security monitoring and incident investigation using Splunk SIEM for detecting web application attacks.</p>
-                    <div class="flex flex-wrap gap-2 mt-4">
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Splunk</span>
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Web Security</span>
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">SIEM</span>
+                    <h3 class="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-primary">Web Application Attack Detection & Investigation Using Splunk SIEM</h3>
+                    <p class="text-gray-400 text-sm md:text-base mb-3 md:mb-4">Web security monitoring and incident investigation using Splunk SIEM for detecting web application attacks.</p>
+                    <div class="flex flex-wrap gap-1 md:gap-2 mt-3 md:mt-4">
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Splunk</span>
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Web Security</span>
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">SIEM</span>
                     </div>
                 </div>
                 
                 <!-- Project 3 -->
-                <div class="project-card p-6">
+                <div class="project-card p-4 md:p-6">
                     <div class="project-icon">
-                        <i class="fas fa-chart-bar text-xl text-primary"></i>
+                        <i class="fas fa-chart-bar text-lg md:text-xl text-primary"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3 text-primary">Splunk SIEM Fundamentals: Log Analysis, Reporting & User Activity Monitoring</h3>
-                    <p class="text-gray-400 mb-4">Fundamental Splunk SIEM deployment with log analysis, reporting dashboards, and user activity monitoring.</p>
-                    <div class="flex flex-wrap gap-2 mt-4">
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Splunk</span>
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Log Analysis</span>
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Reporting</span>
+                    <h3 class="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-primary">Splunk SIEM Fundamentals: Log Analysis, Reporting & User Activity Monitoring</h3>
+                    <p class="text-gray-400 text-sm md:text-base mb-3 md:mb-4">Fundamental Splunk SIEM deployment with log analysis, reporting dashboards, and user activity monitoring.</p>
+                    <div class="flex flex-wrap gap-1 md:gap-2 mt-3 md:mt-4">
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Splunk</span>
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Log Analysis</span>
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Reporting</span>
                     </div>
                 </div>
                 
                 <!-- Project 4 -->
-                <div class="project-card p-6">
+                <div class="project-card p-4 md:p-6">
                     <div class="project-icon">
-                        <i class="fas fa-fire text-xl text-primary"></i>
+                        <i class="fas fa-fire text-lg md:text-xl text-primary"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3 text-primary">Centralized Firewall & IDS Log Monitoring Using Graylog and pfSense (Snort)</h3>
-                    <p class="text-gray-400 mb-4">Centralized logging and monitoring solution for firewall and IDS logs using Graylog and pfSense with Snort integration.</p>
-                    <div class="flex flex-wrap gap-2 mt-4">
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Graylog</span>
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">pfSense</span>
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Snort</span>
+                    <h3 class="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-primary">Centralized Firewall & IDS Log Monitoring Using Graylog and pfSense (Snort)</h3>
+                    <p class="text-gray-400 text-sm md:text-base mb-3 md:mb-4">Centralized logging and monitoring solution for firewall and IDS logs using Graylog and pfSense with Snort integration.</p>
+                    <div class="flex flex-wrap gap-1 md:gap-2 mt-3 md:mt-4">
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Graylog</span>
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">pfSense</span>
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Snort</span>
                     </div>
                 </div>
                 
                 <!-- Project 5 -->
-                <div class="project-card p-6">
+                <div class="project-card p-4 md:p-6">
                     <div class="project-icon">
-                        <i class="fas fa-server text-xl text-primary"></i>
+                        <i class="fas fa-server text-lg md:text-xl text-primary"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3 text-primary">Graylog SIEM Deployment and Log Analysis on CentOS Stream 10</h3>
-                    <p class="text-gray-400 mb-4">Full Graylog SIEM deployment on CentOS Stream 10 with log ingestion, parsing, and security analysis capabilities.</p>
-                    <div class="flex flex-wrap gap-2 mt-4">
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Graylog</span>
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">CentOS</span>
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">SIEM</span>
+                    <h3 class="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-primary">Graylog SIEM Deployment and Log Analysis on CentOS Stream 10</h3>
+                    <p class="text-gray-400 text-sm md:text-base mb-3 md:mb-4">Full Graylog SIEM deployment on CentOS Stream 10 with log ingestion, parsing, and security analysis capabilities.</p>
+                    <div class="flex flex-wrap gap-1 md:gap-2 mt-3 md:mt-4">
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Graylog</span>
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">CentOS</span>
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">SIEM</span>
                     </div>
                 </div>
                 
                 <!-- Project 6 -->
-                <div class="project-card p-6">
+                <div class="project-card p-4 md:p-6">
                     <div class="project-icon">
-                        <i class="fas fa-shield-alt text-xl text-primary"></i>
+                        <i class="fas fa-shield-alt text-lg md:text-xl text-primary"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3 text-primary">Network Intrusion Detection Lab Using pfSense, Snort & Zenmap</h3>
-                    <p class="text-gray-400 mb-4">Network intrusion detection lab environment with pfSense firewall, Snort IDS, and Zenmap for network reconnaissance.</p>
-                    <div class="flex flex-wrap gap-2 mt-4">
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">pfSense</span>
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Snort</span>
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Zenmap</span>
+                    <h3 class="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-primary">Network Intrusion Detection Lab Using pfSense, Snort & Zenmap</h3>
+                    <p class="text-gray-400 text-sm md:text-base mb-3 md:mb-4">Network intrusion detection lab environment with pfSense firewall, Snort IDS, and Zenmap for network reconnaissance.</p>
+                    <div class="flex flex-wrap gap-1 md:gap-2 mt-3 md:mt-4">
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">pfSense</span>
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Snort</span>
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Zenmap</span>
                     </div>
                 </div>
                 
                 <!-- Project 7 -->
-                <div class="project-card p-6">
+                <div class="project-card p-4 md:p-6">
                     <div class="project-icon">
-                        <i class="fas fa-cogs text-xl text-primary"></i>
+                        <i class="fas fa-cogs text-lg md:text-xl text-primary"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3 text-primary">Server Automation Using Ansible: Nginx Deployment via Playbooks</h3>
-                    <p class="text-gray-400 mb-4">Infrastructure automation project using Ansible playbooks for automated Nginx web server deployment and configuration.</p>
-                    <div class="flex flex-wrap gap-2 mt-4">
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Ansible</span>
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Nginx</span>
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Automation</span>
+                    <h3 class="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-primary">Server Automation Using Ansible: Nginx Deployment via Playbooks</h3>
+                    <p class="text-gray-400 text-sm md:text-base mb-3 md:mb-4">Infrastructure automation project using Ansible playbooks for automated Nginx web server deployment and configuration.</p>
+                    <div class="flex flex-wrap gap-1 md:gap-2 mt-3 md:mt-4">
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Ansible</span>
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Nginx</span>
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Automation</span>
                     </div>
                 </div>
                 
                 <!-- Project 8 -->
-                <div class="project-card p-6">
+                <div class="project-card p-4 md:p-6">
                     <div class="project-icon">
-                        <i class="fab fa-laravel text-xl text-primary"></i>
+                        <i class="fab fa-laravel text-lg md:text-xl text-primary"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3 text-primary">Secure Deployment of a Laravel Web Application on CentOS Stream 10</h3>
-                    <p class="text-gray-400 mb-4">Secure deployment and hardening of a Laravel web application on CentOS Stream 10 with security best practices.</p>
-                    <div class="flex flex-wrap gap-2 mt-4">
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Laravel</span>
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">CentOS</span>
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Web Security</span>
+                    <h3 class="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-primary">Secure Deployment of a Laravel Web Application on CentOS Stream 10</h3>
+                    <p class="text-gray-400 text-sm md:text-base mb-3 md:mb-4">Secure deployment and hardening of a Laravel web application on CentOS Stream 10 with security best practices.</p>
+                    <div class="flex flex-wrap gap-1 md:gap-2 mt-3 md:mt-4">
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Laravel</span>
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">CentOS</span>
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Web Security</span>
                     </div>
                 </div>
                 
                 <!-- Project 9 -->
-                <div class="project-card p-6">
+                <div class="project-card p-4 md:p-6">
                     <div class="project-icon">
-                        <i class="fas fa-lock text-xl text-primary"></i>
+                        <i class="fas fa-lock text-lg md:text-xl text-primary"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3 text-primary">Secure Nginx Web Server Configuration with HTTPS on CentOS Stream 10</h3>
-                    <p class="text-gray-400 mb-4">Secure Nginx web server configuration with HTTPS/TLS implementation, security headers, and hardening on CentOS.</p>
-                    <div class="flex flex-wrap gap-2 mt-4">
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Nginx</span>
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">HTTPS</span>
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">CentOS</span>
+                    <h3 class="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-primary">Secure Nginx Web Server Configuration with HTTPS on CentOS Stream 10</h3>
+                    <p class="text-gray-400 text-sm md:text-base mb-3 md:mb-4">Secure Nginx web server configuration with HTTPS/TLS implementation, security headers, and hardening on CentOS.</p>
+                    <div class="flex flex-wrap gap-1 md:gap-2 mt-3 md:mt-4">
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Nginx</span>
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">HTTPS</span>
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">CentOS</span>
                     </div>
                 </div>
                 
                 <!-- Project 10 -->
-                <div class="project-card p-6">
+                <div class="project-card p-4 md:p-6">
                     <div class="project-icon">
-                        <i class="fas fa-user-secret text-xl text-primary"></i>
+                        <i class="fas fa-user-secret text-lg md:text-xl text-primary"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3 text-primary">SSH Brute Force Attack Detection Using Wazuh SIEM</h3>
-                    <p class="text-gray-400 mb-4">Detection and alerting of SSH brute force attacks using Wazuh SIEM with custom rules and real-time monitoring.</p>
-                    <div class="flex flex-wrap gap-2 mt-4">
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Wazuh</span>
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">SSH</span>
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Brute Force</span>
+                    <h3 class="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-primary">SSH Brute Force Attack Detection Using Wazuh SIEM</h3>
+                    <p class="text-gray-400 text-sm md:text-base mb-3 md:mb-4">Detection and alerting of SSH brute force attacks using Wazuh SIEM with custom rules and real-time monitoring.</p>
+                    <div class="flex flex-wrap gap-1 md:gap-2 mt-3 md:mt-4">
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Wazuh</span>
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">SSH</span>
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Brute Force</span>
                     </div>
                 </div>
                 
                 <!-- Project 11 -->
-                <div class="project-card p-6">
+                <div class="project-card p-4 md:p-6">
                     <div class="project-icon">
-                        <i class="fas fa-eye text-xl text-primary"></i>
+                        <i class="fas fa-eye text-lg md:text-xl text-primary"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3 text-primary">Wazuh SIEM Installation and Security Monitoring Lab</h3>
-                    <p class="text-gray-400 mb-4">Complete Wazuh SIEM installation lab with security monitoring, alerting, and compliance checking capabilities.</p>
-                    <div class="flex flex-wrap gap-2 mt-4">
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Wazuh</span>
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">SIEM</span>
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Monitoring</span>
+                    <h3 class="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-primary">Wazuh SIEM Installation and Security Monitoring Lab</h3>
+                    <p class="text-gray-400 text-sm md:text-base mb-3 md:mb-4">Complete Wazuh SIEM installation lab with security monitoring, alerting, and compliance checking capabilities.</p>
+                    <div class="flex flex-wrap gap-1 md:gap-2 mt-3 md:mt-4">
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Wazuh</span>
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">SIEM</span>
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Monitoring</span>
                     </div>
                 </div>
                 
                 <!-- Project 12 -->
-                <div class="project-card p-6">
+                <div class="project-card p-4 md:p-6">
                     <div class="project-icon">
-                        <i class="fas fa-traffic-light text-xl text-primary"></i>
+                        <i class="fas fa-traffic-light text-lg md:text-xl text-primary"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3 text-primary">Brute Force Attack Traffic Analysis Using Wireshark and Zui</h3>
-                    <p class="text-gray-400 mb-4">Network traffic analysis project focusing on brute force attack detection using Wireshark and Zui for packet inspection.</p>
-                    <div class="flex flex-wrap gap-2 mt-4">
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Wireshark</span>
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Zui</span>
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Traffic Analysis</span>
+                    <h3 class="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-primary">Brute Force Attack Traffic Analysis Using Wireshark and Zui</h3>
+                    <p class="text-gray-400 text-sm md:text-base mb-3 md:mb-4">Network traffic analysis project focusing on brute force attack detection using Wireshark and Zui for packet inspection.</p>
+                    <div class="flex flex-wrap gap-1 md:gap-2 mt-3 md:mt-4">
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Wireshark</span>
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Zui</span>
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Traffic Analysis</span>
                     </div>
                 </div>
                 
                 <!-- Project 13 -->
-                <div class="project-card p-6">
+                <div class="project-card p-4 md:p-6">
                     <div class="project-icon">
-                        <i class="fas fa-bug text-xl text-primary"></i>
+                        <i class="fas fa-bug text-lg md:text-xl text-primary"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3 text-primary">Intrusion Detection System (IDS) Implementation Using Snort on Ubuntu</h3>
-                    <p class="text-gray-400 mb-4">Snort IDS implementation on Ubuntu for network intrusion detection with custom rule creation and alerting.</p>
-                    <div class="flex flex-wrap gap-2 mt-4">
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Snort</span>
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">IDS</span>
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Ubuntu</span>
+                    <h3 class="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-primary">Intrusion Detection System (IDS) Implementation Using Snort on Ubuntu</h3>
+                    <p class="text-gray-400 text-sm md:text-base mb-3 md:mb-4">Snort IDS implementation on Ubuntu for network intrusion detection with custom rule creation and alerting.</p>
+                    <div class="flex flex-wrap gap-1 md:gap-2 mt-3 md:mt-4">
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Snort</span>
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">IDS</span>
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Ubuntu</span>
                     </div>
                 </div>
                 
                 <!-- Project 14 -->
-                <div class="project-card p-6">
+                <div class="project-card p-4 md:p-6">
                     <div class="project-icon">
-                        <i class="fas fa-desktop text-xl text-primary"></i>
+                        <i class="fas fa-desktop text-lg md:text-xl text-primary"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3 text-primary">Windows Event Log Analysis for Detecting Reconnaissance & Brute Force Attacks</h3>
-                    <p class="text-gray-400 mb-4">Windows security event log analysis project focused on detecting reconnaissance activities and brute force attacks.</p>
-                    <div class="flex flex-wrap gap-2 mt-4">
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Windows</span>
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Event Logs</span>
-                        <span class="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Security Analysis</span>
+                    <h3 class="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-primary">Windows Event Log Analysis for Detecting Reconnaissance & Brute Force Attacks</h3>
+                    <p class="text-gray-400 text-sm md:text-base mb-3 md:mb-4">Windows security event log analysis project focused on detecting reconnaissance activities and brute force attacks.</p>
+                    <div class="flex flex-wrap gap-1 md:gap-2 mt-3 md:mt-4">
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Windows</span>
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Event Logs</span>
+                        <span class="px-2 md:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">Security Analysis</span>
                     </div>
                 </div>
             </div>
@@ -996,81 +1180,81 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-card">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold section-title" data-i18n="contact_title">Contactez-moi</h2>
-            <div class="grid md:grid-cols-2 gap-12 mt-12">
-                <div>
-                    <h3 class="text-xl font-semibold mb-6 text-primary" data-i18n="get_in_touch">Restons en contact</h3>
-                    <p class="mb-8 text-gray-300" data-i18n="contact_desc">Je suis ouvert aux opportunités professionnelles dans le domaine des réseaux et systèmes. N'hésitez pas à me contacter pour discuter de projets ou de collaborations.</p>
+    <section id="contact" class="py-12 md:py-20 bg-card">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title" data-i18n="contact_title">Contactez-moi</h2>
+            <div class="flex flex-col md:flex-row gap-8 md:gap-12 mt-8 md:mt-12">
+                <div class="md:w-1/2">
+                    <h3 class="text-lg md:text-xl font-semibold mb-4 md:mb-6 text-primary" data-i18n="get_in_touch">Restons en contact</h3>
+                    <p class="mb-6 md:mb-8 text-gray-300 text-sm md:text-base" data-i18n="contact_desc">Je suis ouvert aux opportunités professionnelles dans le domaine des réseaux et systèmes. N'hésitez pas à me contacter pour discuter de projets ou de collaborations.</p>
                     
-                    <div class="space-y-6">
+                    <div class="space-y-4 md:space-y-6">
                         <div class="flex items-center">
-                            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mr-4">
+                            <div class="w-10 h-10 md:w-12 md:h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mr-3 md:mr-4">
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold" data-i18n="location">Localisation</h4>
-                                <p class="text-gray-400">Méknes, Maroc</p>
+                                <h4 class="font-semibold text-sm md:text-base" data-i18n="location">Localisation</h4>
+                                <p class="text-gray-400 text-sm md:text-base">Méknes, Maroc</p>
                             </div>
                         </div>
                         <div class="flex items-center">
-                            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mr-4">
+                            <div class="w-10 h-10 md:w-12 md:h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mr-3 md:mr-4">
                                 <i class="fas fa-phone"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold" data-i18n="phone">Téléphone</h4>
-                                <p class="text-gray-400">+212611915325</p>
+                                <h4 class="font-semibold text-sm md:text-base" data-i18n="phone">Téléphone</h4>
+                                <p class="text-gray-400 text-sm md:text-base">+212611915325</p>
                             </div>
                         </div>
                         <div class="flex items-center">
-                            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mr-4">
+                            <div class="w-10 h-10 md:w-12 md:h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mr-3 md:mr-4">
                                 <i class="fas fa-envelope"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold">Email</h4>
-                                <p class="text-gray-400">fe.rashed04@gmail.com</p>
+                                <h4 class="font-semibold text-sm md:text-base">Email</h4>
+                                <p class="text-gray-400 text-sm md:text-base">fe.rashed04@gmail.com</p>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="mt-8">
-                        <h4 class="font-semibold mb-4" data-i18n="social_media">Réseaux Sociaux</h4>
-                        <div class="flex space-x-4">
-                            <a href="https://www.linkedin.com/in/rachid-ferhaoui-40889627b/" class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary hover:bg-primary hover:text-dark transition duration-300">
+                    <div class="mt-6 md:mt-8">
+                        <h4 class="font-semibold mb-3 md:mb-4 text-sm md:text-base" data-i18n="social_media">Réseaux Sociaux</h4>
+                        <div class="flex space-x-3 md:space-x-4">
+                            <a href="https://www.linkedin.com/in/rachid-ferhaoui-40889627b/" class="w-9 h-9 md:w-10 md:h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary hover:bg-primary hover:text-dark transition duration-300">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
-                            <a href="https://github.com/RASHEDF04" class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary hover:bg-primary hover:text-dark transition duration-300">
+                            <a href="https://github.com/RASHEDF04" class="w-9 h-9 md:w-10 md:h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary hover:bg-primary hover:text-dark transition duration-300">
                                 <i class="fab fa-github"></i>
                             </a>
-                            <a href="https://wa.me/212611915325" class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary hover:bg-primary hover:text-dark transition duration-300">
+                            <a href="https://wa.me/212611915325" class="w-9 h-9 md:w-10 md:h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary hover:bg-primary hover:text-dark transition duration-300">
                                 <i class="fab fa-whatsapp"></i>
                             </a>
                         </div>
                     </div>
                 </div>
                 
-                <div class="card-hover p-8 rounded-xl">
-                    <form id="contact-form" class="space-y-6">
-                        <div class="grid md:grid-cols-2 gap-6">
+                <div class="md:w-1/2 card-hover p-5 md:p-8 rounded-xl">
+                    <form id="contact-form" class="space-y-4 md:space-y-6">
+                        <div class="contact-form-grid">
                             <div>
-                                <label for="name" class="block mb-2 font-medium" data-i18n="form_name">Nom Complet</label>
-                                <input type="text" id="name" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition duration-300" required>
+                                <label for="name" class="block mb-2 font-medium text-sm md:text-base" data-i18n="form_name">Nom Complet</label>
+                                <input type="text" id="name" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 md:px-4 py-2 md:py-3 text-sm md:text-base focus:outline-none focus:border-primary transition duration-300" required>
                             </div>
                             <div>
-                                <label for="email" class="block mb-2 font-medium" data-i18n="form_email">Adresse Email</label>
-                                <input type="email" id="email" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition duration-300" required>
+                                <label for="email" class="block mb-2 font-medium text-sm md:text-base" data-i18n="form_email">Adresse Email</label>
+                                <input type="email" id="email" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 md:px-4 py-2 md:py-3 text-sm md:text-base focus:outline-none focus:border-primary transition duration-300" required>
                             </div>
                         </div>
                         <div>
-                            <label for="subject" class="block mb-2 font-medium" data-i18n="form_subject">Sujet</label>
-                            <input type="text" id="subject" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition duration-300" required>
+                            <label for="subject" class="block mb-2 font-medium text-sm md:text-base" data-i18n="form_subject">Sujet</label>
+                            <input type="text" id="subject" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 md:px-4 py-2 md:py-3 text-sm md:text-base focus:outline-none focus:border-primary transition duration-300" required>
                         </div>
                         <div>
-                            <label for="message" class="block mb-2 font-medium" data-i18n="form_message">Message</label>
-                            <textarea id="message" rows="5" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition duration-300" required></textarea>
+                            <label for="message" class="block mb-2 font-medium text-sm md:text-base" data-i18n="form_message">Message</label>
+                            <textarea id="message" rows="4" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 md:px-4 py-2 md:py-3 text-sm md:text-base focus:outline-none focus:border-primary transition duration-300" required></textarea>
                         </div>
-                        <button type="submit" class="bg-primary hover:bg-secondary text-dark px-6 py-3 rounded-lg font-medium transition duration-300 shadow-lg glow w-full" data-i18n="form_send">Envoyer le Message</button>
+                        <button type="submit" class="bg-primary hover:bg-secondary text-dark px-5 md:px-6 py-2 md:py-3 rounded-lg font-medium transition duration-300 shadow-lg glow w-full text-sm md:text-base" data-i18n="form_send">Envoyer le Message</button>
                     </form>
                 </div>
             </div>
@@ -1078,13 +1262,13 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 bg-dark border-t border-gray-800">
-        <div class="container mx-auto px-6">
+    <footer class="py-6 md:py-8 bg-dark border-t border-gray-800">
+        <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 mb-4 md:mb-0" data-i18n="copyright">© 2025 Rachid Ferhaoui. Tous droits réservés.</p>
-                <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-primary transition duration-300" data-i18n="privacy">Politique de confidentialité</a>
-                    <a href="#" class="text-gray-400 hover:text-primary transition duration-300" data-i18n="terms">Conditions d'utilisation</a>
+                <p class="text-gray-400 text-sm md:text-base mb-3 md:mb-0 text-center md:text-left" data-i18n="copyright">© 2025 Rachid Ferhaoui. Tous droits réservés.</p>
+                <div class="flex space-x-4 md:space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-primary transition duration-300 text-sm md:text-base" data-i18n="privacy">Politique de confidentialité</a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition duration-300 text-sm md:text-base" data-i18n="terms">Conditions d'utilisation</a>
                 </div>
             </div>
         </div>
@@ -1262,7 +1446,9 @@
 
         // Mobile menu toggle
         document.getElementById('menu-btn').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('show');
         });
 
         // Language switchers
@@ -1315,12 +1501,17 @@
                 card.style.opacity = '0';
                 projectObserver.observe(card);
             });
+            
+            // Initialize network visualization
+            initNetworkVisualization();
         });
 
         // Close mobile menu when clicking on a link
         document.querySelectorAll('#mobile-menu a').forEach(link => {
             link.addEventListener('click', function() {
-                document.getElementById('mobile-menu').classList.add('hidden');
+                const mobileMenu = document.getElementById('mobile-menu');
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('show');
             });
         });
 
@@ -1353,7 +1544,7 @@
 
             // Create nodes
             const nodes = [];
-            for (let i = 0; i < 15; i++) {
+            for (let i = 0; i < 12; i++) {
                 nodes.push({
                     x: Math.random() * canvas.offsetWidth,
                     y: Math.random() * canvas.offsetHeight,
@@ -1410,9 +1601,19 @@
             draw();
         }
 
-        // Initialize network visualization when page loads
-        window.addEventListener('load', initNetworkVisualization);
+        // Handle window resize
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                // Reinitialize network visualization on resize
+                const canvas = document.getElementById('network-canvas');
+                if (canvas) {
+                    canvas.innerHTML = '';
+                    initNetworkVisualization();
+                }
+            }, 250);
+        });
     </script>
 </body>
 </html>
-
